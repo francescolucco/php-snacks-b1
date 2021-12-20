@@ -3,6 +3,31 @@
 // ## Snack 4
 // Creare un array con 15 numeri casuali, tenendo conto che l’array non dovrà contenere lo stesso numero più di una volta
 
+
+function getNumberRandom($min, $max, $nItems){
+   $newArray = [];
+
+   while(count($newArray) < $nItems){
+      $number = rand($min, $max);
+      
+      if(!in_array($number, $newArray)){
+         $newArray[] = $number;
+      }
+   }
+
+   return $newArray;
+}
+
+$arrayNew = getNumberRandom(1, 30, 15);
+var_dump($arrayNew);
+
+echo "I numeri estratti sulla ruota di Venezia sono:<br>";
+for($i = 0; $i < count($arrayNew); $i++ ){
+   echo $arrayNew[$i] . "<br>";
+}
+
+
+
 ?>
 
 
