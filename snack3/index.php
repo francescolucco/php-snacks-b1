@@ -80,6 +80,47 @@ $date = array_keys($posts);
 
 <body>
     <ul>
+        <?php
+        foreach ($posts as $key => $post) {
+        ?>
+            <li>
+                <?php
+                echo $key
+                ?>
+
+                <ul>
+                    <?php
+                    foreach ($post as $value) {
+                    ?>
+                        <li>
+                            <h4>
+                                <?php
+                                echo $value['title']
+                                ?>
+
+                            </h4>
+                            <h6>
+                                <?php
+                                echo $value['author']
+                                ?>
+
+                            </h6>
+                            <p>
+                                <?php
+                                echo $value['text']
+                                ?>
+                            </p>
+                        </li>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </li>
+        <?php
+        }
+        ?>
+    </ul>
+    <!-- <ul>
         <li>
             <?php
             echo $date[0];
@@ -223,7 +264,7 @@ $date = array_keys($posts);
             </ul>
         </li>
     </ul>
-
+ -->
 </body>
 
 </html>

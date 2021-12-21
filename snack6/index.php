@@ -42,75 +42,52 @@ $people = array_keys($db);
 </head>
 
 <body>
-    <div class="box-grey">
-        <h1>
-            <?php
-            echo $people[0];
-            ?>
-        </h1>
-        <ul>
-            <li>
-            <?php
-            echo $db['pm'][0]['name'].' '.$db['pm'][0]['lastname'];
-            ?>
-            </li>
-            <li>
-            <?php
-            echo $db['pm'][1]['name'].' '.$db['pm'][1]['lastname'];
-            ?>
-            </li>
-        </ul>
-        
-        
-        
-    </div>
-    <div class="box-green">
-        <h1>
-            <?php
-            echo $people[1];
-            ?>
-        </h1>
-        <ul>
-            <li>
-            <?php
-            echo $db['teachers'][0]['name'].' '.$db['teachers'][0]['lastname'];
-            ?>
-            </li>
-            <li>
-            <?php
-            echo $db['teachers'][1]['name'].' '.$db['teachers'][1]['lastname'];
-            ?>
-            </li>
-        </ul>
 
-    </div>
+    <?php foreach ($db as $key => $value) { ?>
+        <div class="box <?php echo $key ?>">
+            <h1>
+                <?php echo strtoupper($key) ?>
+            </h1>
+            <ul>
+                <?php foreach ($value as $name) {?>
+                    <li>
+                        <?php echo $name['name'] . ' ' . $name['lastname'] ?>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+    <?php } ?>
 </body>
 
 <style>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
     body {
         width: 100vw;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0;
-        margin: 0;
     }
-
-    .box-grey {
+    h1{
+        font-size: 30px;
+        margin-bottom: 40px;
+    }
+    .box {
         width: 300px;
         height: 300px;
-        background-color: lightgray;
         margin-right: 20px;
         padding: 40px;
     }
+    .teachers {
+        background-color: lightgray;
+    }
 
-    .box-green {
-        width: 300px;
-        height: 300px;
+    .pm {
         background-color: lightgreen;
-        margin-left: 20px;
-        padding: 40px;
     }
 </style>
 
